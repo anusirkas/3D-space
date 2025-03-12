@@ -2,7 +2,7 @@
 
 This is a learning project based on [fireship-io/threejs-scroll-animation-demo].
 https://github.com/fireship-io/threejs-scroll-animation-demo  
-I built this to explore Three.js, Vite, animations, and 3D effects in web development.  
+I built this to explore Three.js, Vite framework, animations, and 3D effects in web development.  
 
 
 # Scrollable 3D Animation with Three.js
