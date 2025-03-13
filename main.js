@@ -25,7 +25,7 @@ const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 
 // Torus Texture
 const TextureLoader = new THREE.TextureLoader();
-const torusTexture = TextureLoader.load('metal_texture.jpg');
+const torusTexture = TextureLoader.load('/metal_texture.jpg');
 
 
 // Create Material with Texture
@@ -78,12 +78,12 @@ Array(200).fill().forEach(addStar);
 
 // Background
 
-const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+const spaceTexture = new THREE.TextureLoader().load('/space.jpg');
 scene.background = spaceTexture;
 
 // Avatar
 
-const personTexture = new THREE.TextureLoader().load('anu.jpg');
+const personTexture = new THREE.TextureLoader().load('/anu.jpg');
 
 const person = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: personTexture }));
 
@@ -91,8 +91,8 @@ scene.add(person);
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader().load('moon.jpg');
-const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+const moonTexture = new THREE.TextureLoader().load('/moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('/normal.jpg');
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -130,6 +130,20 @@ document.body.onscroll = moveCamera;
 moveCamera();
 
 // Animation Loop
+
+
+//Adjust the scene when resizing
+window.addEventListener("resize", () => {
+  // Update camera aspect ratio
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  // Update renderer size
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+});
+
+
 
 function animate() {
   requestAnimationFrame(animate);
